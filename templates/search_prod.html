@@ -1,0 +1,57 @@
+<html>
+<head>
+  <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+</head>
+<body>
+  <div class="sticky">
+    <h1>Онлайн-магазин спортивных товаров</h1>
+  </div>
+  <div class="nav">
+    <p><a href="/">Home</a> > <a href="">Buy</a><p>
+  </div>
+  <ul class="headbar">
+    <li><a href="">Search Products</a></li>
+    <li><a href="/cart">My Cart</a></li>
+  </ul>
+  <div class="centerthis">
+  <form action="" method="POST" onsubmit="return checkSelect()">
+    <h3><input type="radio" value="by keyword" name="search method" checked>Search by keyword</h3>
+    <input type="search" name="keyword" value="" id="search">
+    <br>
+   <h3><input type="radio" value="by category" name="search method">Search by category</h3>
+   <select name="category">
+    <option value="" disabled selected>Выбрать категорию</option>
+    <option value="Sportwear">Одежда для спорта</option>
+    <option value="Velosport">Велоспорт</option>
+    <option value="Swimming">Плавание</option>
+    <option value="Winter">Зимний спорт</option>
+    <option value="Trainer">Тренажеры</option>
+   </select>
+   <p><input type="submit" value="SEARCH"></p>
+  </form>
+  </div>
+ <br><br>
+ {% if after_srch %}
+     <p> Category = {{ category }}</p>
+  {% if results|length==0 %}
+    <p>No results match your search</p>
+  {% else %}
+ <table>
+   <tr>
+     <th>SNo.</th><th>Name</th>
+     <th>Category</th><th>Price</th><th></th>
+   </tr>
+   {% set cnt={'val':1} %}
+   {% for i in results %}
+   <tr>
+     <td>{{cnt['val']}}</td> <td>{{i[1]}}</td>  <td>{{i[2]}}</td> <td> {{i[3]}}</td>
+    <td><a href="/product/{{i[0]}}">View</a></td>
+    <td><a href="/product/addtocart/{{i[0]}}">Add to cart</a></td>
+   </tr>
+   {% if cnt.update({'val':(cnt['val']+1)}) %}{% endif %}
+   {% endfor %}
+ </table>
+ {% endif %}
+ {% endif %}
+</body>
+</html>

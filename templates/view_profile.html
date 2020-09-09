@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+      </head>
+<body>
+    <div class="sticky">
+        <h1>Онлайн-Магазин спортивных товаров</h1>
+    </div>
+  <div class="nav">
+    <p><a href="/">Home</a> > View Profiles > <a href="">User Profile</a></p>
+  </div>
+    {% if id_exists == True %}
+    {% if myprofile==False %}
+        <h2>User Profile</h2>
+    {% else %}
+        <h2>This is my profile</h2>
+    {% endif %}
+  <table>
+    <tr>
+      <td>NAME :</td><td>{{name}}</td>
+    </tr>
+    <tr>
+      <td>EMAIL :</td><td>{{email}}</td>
+    </tr>
+    <tr>
+      <td>PHONE :</td><td>{{phone}}</td>
+    </tr>
+    <tr>
+      <td>ADDRESS :</td><td>{{city}}, {{country}}</td>
+    </tr>
+    <tr>
+      <td>ZIPCODE :</td><td>{{zip}}</td>
+    </tr>
+  </table>
+  {% if myprofile %}
+  <p class="press"><a href="/editprofile/">Edit Profile</a></p>
+      {% endif %}
+    {% else %}
+    <p>Такого идентификатора нет в базе данных</p>
+      {% endif %}
+</body>
+</html>

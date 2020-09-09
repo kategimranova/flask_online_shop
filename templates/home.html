@@ -1,0 +1,42 @@
+<html>
+<head>
+  <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+</head>
+<body>
+  <div class="sticky">
+    <h1>Онлайн-магазин спортивных товаров</h1></div>
+  <ul class="headbar">
+    <li><a href="/">Home</a></li>
+    <li><a href="/register">Создать новый аккаунт</a></li>
+    <li><a href="/buy">Найти продукты</a></li>
+    <li><a href="/admin">Для администратора</a></li>
+    {% if signedin %}
+      <li><a href="/logout">Выйти</a></li>
+    {% else %}
+      <li><a href="/login">Войти</a></li>
+    {% endif %}
+  </ul>
+  {% if signedin %}
+    <div class="center_wrapper">
+        <div class="home-admin">
+            Вы вошли как <b>{{name}}</b>
+        </div>
+    </div>
+    <div class="centerthis">
+    <p class="press"><a href="/editprofile">Edit Profile</a></p>
+    {% if type=="Customer" %}
+      <p class="press"><a href="/buy">Buy Items</a></p>
+    {% elif type=="Seller" %}
+      <p class="press"><a href="/sell">Sell Items</a></p>
+    {% endif %}
+    <p class="press"><a href="/changepassword">Change Password</a></p>
+    </div>
+  {% else %}
+      <div class="center_wrapper">
+          <a href="/login" class="home__a">
+            <div class="warning">Вы еще не вошли в систему! Нажмите, чтобы войти</div>
+          </a>
+      </div>
+  {% endif %}
+</body>
+</html>

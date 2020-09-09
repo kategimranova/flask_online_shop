@@ -1,0 +1,29 @@
+<html>
+<head>
+  <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+</head>
+<body>
+  <div class="sticky">
+    <h1>Онлайн-магазин спортивных товаров</h1>
+  </div>
+  <div class="nav">
+    <p><a href="/">Home</a> / <a href="">Login</a></p>
+  </div>
+
+
+  <div class="login_wrapper">
+      <div class="login">
+          <form action="" method="POST" class="login-form">
+              <label for="email" class="login__label">Email</label>
+              <input name="email" id="email" class="login__input" placeholder="Введите email" required>
+              <label for="password" class="login__label">Пароль</label>
+              <input type="password" name="password" id="password" class="login__input" placeholder="Введите пароль" required>
+              <button type="submit" value="SUBMIT" class="login__button">Войти</button>
+          </form>
+          {% if err %}
+              <div class="login__error">Неправильный логин или пароль</div>
+          {% endif %}
+      </div>
+  </div>
+</body>
+</html>

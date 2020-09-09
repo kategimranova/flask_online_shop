@@ -1,0 +1,36 @@
+<html>
+<head>
+  <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+  <link href="https://fonts.googleapis.com/css?family=Acme|K2D" rel="stylesheet">
+  <link rel='icon' href="{{url_for('static', filename='logo.png')}}">
+</head>
+<body>
+  <div class="sticky">
+    <h1>OnLineShop</h1>
+  </div>
+  <div class="nav">
+    <p><a href="/">Home</a> > <a href="">Edit Profile</a></p>
+  </div>
+  <div class="center_wrapper">
+        <div class="home-admin">
+            Вы вошли как <b>{{name}}</b>
+        </div>
+  </div>
+  <div class="center_wrapper">
+      <form class="login" action="" method="POST" onsubmit="return validateForm()">
+          <div class="header">Edit profile</div>
+          <label class="login__label">Email</label>
+          <input value="{{ email }}" readonly class="login__input">
+          <label for="phone" class="login__label">Phone</label>
+          <input name="phone" value="{{ phone }}" class="login__input" required>
+          <label for="city" class="login__label">City</label>
+          <input name="city" value="{{ city }}" class="login__input" required>
+          <label for="country" class="login__label">Country</label>
+          <input name="country" value="{{ country }}" class="login__input" required>
+          <label for="zip" class="login__label">ZIPCODE</label>
+          <input name="zip" value="{{ zip }}" class="login__input" required>
+          <button type="submit" value="Save Changes" class="login__button">Сохранить</button>
+      </form>
+  </div>
+</body>
+</html>

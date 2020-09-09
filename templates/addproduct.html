@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление новых товаров</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+  <link href="https://fonts.googleapis.com/css?family=Acme|K2D" rel="stylesheet">
+  <link rel='icon' href="{{url_for('static', filename='logo.png')}}">
+</head>
+<body>
+    <div class="sticky">
+    <h1>Онлайн-Магазин спортивных товаров</h1>
+  </div>
+  <div class="nav">
+    <p><a href="/">Home</a> > <a href="">Add new product</a></p>
+  </div>
+  <div class="center_wrapper margin-top">
+      <form class="login" action="" method="POST">
+          <div class="login__header">Добавление нового товара</div>
+          <label for="category" class="login__label">Категория товара</label>
+          <input name="category" value="{{category}}" id="category" class="login__input" required>
+          <label for="name" class="login__label">Название</label>
+          <input  name="name" value="{{name}}" id="name" class="login__input" required>
+          <label for="price" class="login__label">Цена</label>
+          <input name="price" value="{{price}}" id="price" class="login__input" required>
+          <label for="description" class="login__label">Описание товара</label>
+          <input name="description" value="{{description}}" id="description" class="login__input" required>
+          <button type="submit" value="Добавить товар" class="login__button">Добавить товар</button>
+      </form>
+  </div>
+</body>
+</html>

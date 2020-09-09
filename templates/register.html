@@ -1,0 +1,48 @@
+<html>
+<head>
+     <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+</head>
+<body>
+    <div class="sticky">
+    <h1>Онлайн-магазин спортивных товаров</h1>
+  </div>
+  <div class="nav">
+    <p><a href="/">Home</a> > <a href="">Создать аккаунт</a></p>
+  </div>
+  <div class="center_wrapper margin-top">
+      <form class="login" action="" method="POST">
+          <div class="login__header">Создание аккаунта пользователя</div>
+
+          <label for="name" class="login__label">Имя</label>
+          <input name="name" id="name" class="login__input">
+          <label for="email" class="login__label">Email</label>
+          <input name="email" id="email" class="login__input">
+          <label for="phone" class="login__label">Телефон</label>
+          <input name="phone" id="phone" type="tel" class="login__input">
+          <label for="city" class="login__label">Город</label>
+          <input name="city" id="city" class="login__input">
+          <label for="country" class="login__label">Страна</label>
+          <input name="country" id="country" class="login__input">
+          <label for="zip" class="login__label">Индекс</label>
+          <input name="zip" id="zip" class="login__input">
+          <label for="password" class="login__label">Пароль</label>
+          <input name="password" id="password" type="password" class="login__input">
+          <label for="cnfrm_psswd" class="login__label">Пароль (повтор)</label>
+          <input name="cnfrm_psswd" id="cnfrm_psswd" class="login__input">
+          <div class="login__checkbox-wrapper">
+              <label for="check" class="login__label">
+              Разрешить публичный доступ
+              </label>
+              <input type="checkbox" name="check" id="check">
+          </div>
+
+          <button type="submit" value="SUBMIT" class="login__button">Создать</button>
+      </form>
+      {% if not ok %}
+      <div class="login__error">
+          Аккаунт с данным email уже существует
+      </div>
+      {% endif %}
+  </div>
+</body>
+</html>

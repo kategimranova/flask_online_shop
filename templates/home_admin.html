@@ -1,0 +1,32 @@
+<html>
+<head>
+  <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+</head>
+<body>
+  <div class="sticky">
+    <h1>Онлайн-магазин спортивных товаров</h1></div>
+  <ul class="headbar">
+    <li><a href="/admin">Home admin</a></li>
+    {% if signedin %}
+      <li><a href="/logoutadmin">Выйти</a></li>
+        <li><a href="/addproducts">Добавить товары</a></li>
+        <li><a href="/admin/products">Найти товары</a><li>
+    {% else %}
+      <li><a href="/loginadmin">Войти</a></li>
+    {% endif %}
+  </ul>
+  {% if signedin %}
+      <div class="center_wrapper">
+        <div class="home-admin">
+            Вы вошли как <b>{{name}}</b>
+        </div>
+      </div>
+  {% else %}
+    <div class="center_wrapper">
+          <a href="/loginadmin" class="home__a">
+            <div class="warning">Вы еще не вошли в систему! Нажмите, чтобы войти</div>
+          </a>
+      </div>
+  {% endif %}
+</body>
+</html>

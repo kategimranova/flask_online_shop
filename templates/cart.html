@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+    <title>Cart</title>
+</head>
+<body>
+<div class="sticky">
+    <h1>Онлайн-магазин спортивных товаров</h1>
+  </div>
+  <div class="nav">
+    <p><a href="/">Home</a> > <a href="">Buy</a><p>
+  </div>
+  <ul class="headbar">
+    <li><a href="/buy">Search Products</a></li>
+    <li><a href="/cart">My Cart</a></li>
+  </ul>
+    <p class="center">Корзина пользователя</p>
+    {% if nullcart == True %}
+        <p> Ваша корзина пуста</p>
+    {% else %}
+        <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>Цена</th>
+                    <th>Количество</th>
+                    <th>Категория</th>
+                    <th>Описание</th>
+                </tr>
+            </thead>
+            {% for elem in table %}
+            <tr>
+                <td>{{elem[1]}}</td>
+                <td>{{elem[4]}}</td>
+                <td>{{elem[-1]}}</td>
+                <td>{{elem[3]}}</td>
+                <td>{{elem[5]}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+</body>
+</html>
